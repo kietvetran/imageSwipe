@@ -1,0 +1,62 @@
+html, body{
+  background: #BFBFBF none repeat 0 0;
+  color: #333333;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 13px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+
+.link, a, a:hover, a:visited {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #333333;
+}
+
+.hide {
+  display: none;
+}
+
+.container {
+  overflow: hidden;
+  width: 90%;
+  margin: 0 auto 20px auto;
+}
+
+.block {
+  margin: 20px 0 0 0;
+}
+
+.headline1 {
+  font-size: 36px;
+  line-height: 40px;
+}
+
+.headline2 {
+  font-size: 30px;
+  line-height: 40px;
+}
+
+.source {
+  overflow: hidden;    
+  padding: 20px 10px 20px 10px;
+  background: #FFFFFF none repeat 0 0;
+  border: 1px solid #333333;
+}
+
+.description {
+  line-height: 20px;
+}
+
+.description ul {
+  padding: 0 0 0 20px;
+}
+
+.description ul li .note {
+  color: #777777;
+}
+

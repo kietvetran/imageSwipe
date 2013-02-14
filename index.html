@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Image Swipe</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+<!-- CSS style -->
+<link type="text/css" rel="stylesheet" href="css/index.css">
+<link type="text/css" rel="stylesheet" href="css/MWimageSwipe.css">
+
+<!-- Script -->
+<script type="text/javascript" src="./js/jquery/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="./js/jquery/jquery-ui-1.9.2.custom.min.js"></script>
+<script type="text/javascript" src="./js/plugin/jquery.touchSwipe.js"></script>
+<script type="text/javascript" src="./js/MWimageSwipe.js"></script> 
+
+<script>
+function startup() { 
+  var text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius sem ' +
+    'tincidunt neque cursus dictum. Sed et purus nec ante ullamcorper sodales. ' +
+    'Phasellus dictum iaculis massa sed aliquet. Fusce quis nunc metus, vitae ' +
+    'hendrerit est. Pellentesque mi mi, semper rutrum ullamcorper a, interdum ' +
+    'in odio. Phasellus facilisis ornare condimentum. Maecenas facilisis tempor ' +
+    'dolor, vehicula tincidunt nisi sodales sed. ' 
+    'Morbi pellentesque facilisis';
+
+  $('.screen').MWimageSwipe( {
+    'startIndexImage' : 2,
+    'carousel'        : false,
+    'autoSwipe'       : false, //true,
+    'reverse'         : true,
+    'incremental'     : false,
+    'data'            : [ 
+      { 'src': './img/cars1.jpg', 'text': 'Image 1' },
+      { 'src': './img/cars2.jpg', 'text': 'Image 2' },  
+      { 'src': './img/cars3.jpg', 'text': 'Image 3' }, 
+      { 'text': text }, 
+      { 'src': './img/cars4.jpg', 'text': 'Image 4' },
+      { 'src': './img/cars5.jpg', 'text': 'Image 5' },
+      {}
+    ]
+  });
+}
+
+
+function debug( text, value ) {
+  var debug = $('div#debugWidget'), v = '', d = new Date();
+  if ( ! debug.size() ) {
+    var s = 'z-index:1000; position:fixed; bottom:5px; right:5px; width:300px; height:300px;' +
+      'background-color:#FFFFFF; overflow:scroll; border:1px solid red; display:block;';
+    debug = $( '<div id="debugWidget" style="'+s+'"></div>').appendTo( $('body') );
+  }
+  
+  var t = d.getMinutes() + ':' + d.getSeconds();
+  if ( value != null ) {
+    if ( typeof(value) != 'object' )
+      v = value;
+    else if( value instanceof Array )
+      v = value.join('<br/>');
+    else {
+      var data = [];
+      for ( var k in value ) data.push( k + ' : ' + value[k]);
+      v = data.join( '<br/>' );
+    }
+  }
+  debug.html( t + '<br/>' + text + '<br/>' + v + '<div>&nbsp;</div>' + debug.html() );
+}
+</script>
+</head> 
+<body onload="javascript:startup()">
+
+  <div class="container">
+    <div class="headline1 block">Image Swipe - Touch Enabled jQuery Horizontal</div>
+    <div class="description block">
+      The plugin allows to integrate a customizable, cross-browser content slider 
+      into your web presence and it is responsive support. Designed for use as a 
+      content slider, carousel, scrolling website banner, or image gallery.
+    </div>
+    <div class="source block">  
+      <div class="screen">
+        <div class="slider">
+          <!-- <div class="image"><img src="./img/cars1.jpg"></div>
+          <div class="image"><img src="./img/cars2.jpg"></div>
+          <div class="image"><img src="./img/cars3.jpg"></div>
+          <div class="image"><img src="./img/cars4.jpg"></div>
+          <div class="image"><img src="./img/cars5.jpg"></div>    -->
+        </div>
+      </div>
+    </div>  
+    <div class="description block">
+      <div class="headline2">Features</div>  
+      <ul class="list">
+        <li>Hardware accelerated: <span class="note">using CSS for supported iOS, Android and WebKit browsers</span></li>
+        <li>Responsive support: <span class="note">to work with the most dynamic desktop and mobile sites.</span></li>
+        <li>FF/Safari/Chrome/IE7+: <span class="note">Full modern browser support for desktop.</span></li>
+        <li>Infinitely looping: <span class="note">Loop through your slides endlessly in both directions.</span></li>
+        <li>Auto-sliding: <span class="note">Set your slider to automatically transition and pause on hover.</span></li>
+      </ul>
+    </div> 
+
+    <div class="description block">
+      <div class="headline2">Browser Support Details</div>  
+      <ul class="list">
+        <li>FireFox 5.0+</li>
+        <li>Safari 5.0+</li>
+        <li>Chrome 19.0+</li>
+        <li>Internet Explorer 7+</li>
+        <li>Opera 12.0+</li>
+        <li>iOS Safari 4.0+</li>
+        <li>Android 2.3+</li>
+      </ul>
+    </div>  
+
+    <div class="description block">
+      <div class="headline2">Known bugs</div>  
+      <ul class="list">
+        <li>Phone with Window 7.5, IE9 Phone doesnt support touch events</li>
+      </ul>
+    </div>    
+
+    <div class="description block">
+      <div class="headline2">Dependecies</div>  
+      <ul class="list">
+        <li>jQuery 1.6+</li>
+        <li><a href="http://labs.skinkers.com/touchSwipe/">touchSwipe plugin</a></li>
+      </ul>
+    </div>    
+  </div>    
+</body>
+</html>
