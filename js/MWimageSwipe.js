@@ -54,7 +54,7 @@ $.fn.MWimageSwipe = function ( config ) {
     'slider'     : this.find('.slider'),
     'onSlide'    : false,
     'out'        : 0,
-    'ie'         : $.browser.msie ? $.browser.version : 0,
+    'ie'         : (function() { var m = /(msie) ([\w.]+)/.exec(navigator.userAgent.toLowerCase()); return (m && m.length == 3) ? m[2] : 0; })(),
     'waiting'    : [],
     'distance'   : config['distance']        || 20,
     'duration'   : config['duration']        || 600,
